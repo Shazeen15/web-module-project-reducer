@@ -8,7 +8,12 @@ import CalcButton from "./components/CalcButton";
 
 import reducer, { initialState } from "./reducers/index";
 
-import { applyNumber, changeOperator, clearDisplay } from "./actions/index";
+import {
+  applyNumber,
+  changeOperator,
+  clearDisplay,
+  totalToMemory,
+} from "./actions/index";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -20,6 +25,9 @@ function App() {
   };
   const clearClick = () => {
     dispatch(clearDisplay());
+  };
+  const totalToMemoryClick = () => {
+    dispatch(totalToMemory());
   };
   return (
     <div className="App">
@@ -44,7 +52,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
+              <CalcButton value={"M+"} onClick={totalToMemoryClick} />
               <CalcButton value={"MR"} />
               <CalcButton value={"MC"} />
             </div>
