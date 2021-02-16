@@ -4,6 +4,7 @@ import {
   CHANGE_OPERATION,
   CLEAR_DISPLAY,
   TOTAL_TO_MEMORY,
+  MEMORY_CLEAR,
 } from "./../actions";
 
 export const initialState = {
@@ -55,6 +56,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         memory: state.total,
+      };
+
+    case MEMORY_CLEAR:
+      return {
+        ...state,
+        memory: 0,
       };
     default:
       return state;

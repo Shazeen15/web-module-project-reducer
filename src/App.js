@@ -13,6 +13,7 @@ import {
   changeOperator,
   clearDisplay,
   totalToMemory,
+  memoryClear,
 } from "./actions/index";
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
   };
   const totalToMemoryClick = () => {
     dispatch(totalToMemory());
+  };
+
+  const memoryClearClick = () => {
+    dispatch(memoryClear());
   };
   return (
     <div className="App">
@@ -54,7 +59,7 @@ function App() {
             <div className="row">
               <CalcButton value={"M+"} onClick={totalToMemoryClick} />
               <CalcButton value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton value={"MC"} onClick={memoryClearClick} />
             </div>
 
             <div className="row">
